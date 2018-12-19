@@ -22,7 +22,7 @@ def circle(t, r)
     polygon(t, r, 360)
 
 square(bob, 57.5)
-polygon(bob, 50, 6)
+polygon(bob, 50, 66)
 circle(bob, 1)
 
 turtle.mainloop()
