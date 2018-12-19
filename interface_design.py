@@ -18,8 +18,10 @@ def polygon(t, length, n):
         t.fd(length)
         t.lt(360/n)
 
-def circle(t, r)
+
+def circle(t, r):
     polygon(t, r, 360)
+
 
 square(bob, 57.5)
 polygon(bob, 50, 66)
