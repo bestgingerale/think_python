@@ -15,17 +15,19 @@ def square(t, length):
         t.lt(90)
 
 
-def polygon(t, length, n):
+def polygon(t1, t2, length, n):
     for i in range(n):
-        t.fd(length)
-        t.lt(360/n)
+        t1.fd(length)
+        t1.lt(360/n)
+        t2.fd(length)
+        t2.rt(360/n)
 
 
-def circle(t, r):
+def circle(t1, t2, r):
     circumference = 2 * math.pi * r
-    n = 500
-    length = int(circumference/n)
-    polygon(t, length/500, n)
+    n = int(circumference/3)+3
+    length = circumference / n
+    polygon(t1, t2, length, n)
 
 
 def circle2(t, r):
@@ -36,19 +38,23 @@ def circle2(t, r):
 
 
 def arc(t, r, angle):
-    circum = r*2*math.pi
-    for i in range(int(circum/360*angle)):
-        t.fd(r*2*math.pi)
-        t.lt(360/angle)
+    arc_length = 2 * math.pi * r * angle / 360
+    n = int(arc_length / 3) + 1
+    step_length = arc_length / n
+    step_angle = angle / n
+
+    for i in range(n):
+        t.fd(step_length)
+        t.lt(step_angle)
 
 
 # square(bob, 50)
 # square(alice, 60)
 # polygon(bob, n=6, length=50)
-# # polygon(bob, 50, 8)
-circle(bob, 50)
-circle2(bob, 50)
-# arc(bob, 25, 180)
+# circle(bob, alice, 100)
+# circle2(bob, 50)
+arc(bob, 25, 180)
 
 # print(bob)
-turtle.mainloop()
+# turtle.mainloop()
+turtle.exitonclick()
