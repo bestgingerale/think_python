@@ -8,8 +8,12 @@ def check_fermat(a, b, c, n):
     print("No, that doesn't work.")
 
 
-a1 = int(input('a = '))
-b2 = int(input('b = '))
-c3 = int(input('c = '))
-n4 = int(input('n = '))
-check_fermat(a1, b2, c3, n4)
+def user_input():
+    params = {}
+    for p in ['a', 'b', 'c', 'n']:
+        params[p] = int(input(f'please enter the value of {p}\n'))
+
+    check_fermat(**params)
+
+
+user_input()

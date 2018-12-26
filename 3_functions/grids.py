@@ -57,9 +57,10 @@ def grids():
     # do_twice(hat)   # two by two
     do_four(hat)  # four by four
     plus_minus_line()
+    print()
 
 
 # plus_minus()
 # plus_minus_line()
 # hat()
-grids()
+do_twice(grids)

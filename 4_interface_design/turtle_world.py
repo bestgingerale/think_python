@@ -41,11 +41,11 @@ def arc(t, r, angle):
 
 # square(bob, length=30)
 # polygon(alice, length=19, side=5)
-# square(alice, length=30, side=7)
+# square(alice, 30)
+polygon(alice, length=7, side=30)
 # circle(bob, 50)
-arc(bob, 50, 180)
-arc(alice, 60, 80)
+# arc(bob, 50, 180)
+# arc(alice, 60, 80)
 
 
-print(bob)
-turtle.mainloop()
+turtle.done()
