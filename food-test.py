@@ -6,7 +6,7 @@ import pandas as pd
 
 data = pd.read_csv('food-test.csv', usecols=('name_cn', 'level1'))
 
-data = data.iloc[560:5441]  # ---test
+data = data.iloc[560:5441]  # ------test
 # data = data[601:2625]  # ---production
 
 # data.loc[data['name_cn'] == '爆炒土鸭子', 'level1'] = 'duck_dishes'
@@ -33,7 +33,6 @@ rules2 = [
     ('鸡汤', 'chicken_soup'),
     ('鸭汤', 'duck_soup'),
     ('((?<!羊|牛|鸡)肉)|炒肉', 'stir_fried_pork'),
-    ('包子', 'steamed_bun'),
     ('奶茶', 'milk_tea'),
     ('蛋糕', 'chinese_cakes'),
     ('吐司', 'toast'),
@@ -41,7 +40,14 @@ rules2 = [
     ('饺子', 'jiaozi'),
     ('虾', 'chinese_shrimp'),
     ('饺子', 'jiaozi'),
-    ('牛奶', 'chinese_milk')
+    ('牛奶', 'chinese_milk'),
+    ('面', 'chinese_noodles'),
+    ('包子', 'steamed_bun'),
+    ('面包', 'chinese_bread'),
+    ('炒鸡蛋', 'chinese_fried_eggs'),
+    ('河粉', 'hefen'),
+    ('米线', 'mixian'),
+    ('米粉', 'rice_vermicelli')
 ]
 
 
@@ -50,7 +56,6 @@ def mapping():
     for keys, values in rules2:  # rules2 tuple
         data.loc[data['name_cn'].str.contains(keys, na=False, regex=True), 'level1'] = values
         # str.extract.data.loc[data['name_cn'].str.contains(keys, na=False, regex=True), 'level1'] = values
-
     print(data[data['level1'].notna()])
 
 
@@ -62,12 +67,13 @@ def progress():  # To track progress
     print(f'{round(done / total * 100)}% done. {total - done} more to go.')
 
 
-def check(v):
+def check(v):  # To check specific items
     print(data[data['name_cn'].str.contains(v, na=False, regex=False)])
 
 
 mapping()
-# check('豆')
+check('铜锣烧')
 progress()
 
-data.to_csv('food-test-modified.csv', encoding='utf-8')
+data.to_csv('food-test-modified.csv')
+# result.to_csv('food-test-left.csv', encoding='utf-8')
