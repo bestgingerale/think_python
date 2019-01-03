@@ -31,3 +31,5 @@ if __name__ == '__main__':
     print(rotate_word('melon', -10))
     print(rotate_word('HAL', 1))
     print(rotate_word('HAL', 27))
+    print(rotate_word(' ', 13))
+    print(rotate_word('uryyb jbeyq!', 13))

@@ -4,8 +4,7 @@ to_be_code = {'A': 3,
               'melon': -10,
               'HAL': 1,
               'mElOn': -10,
-              'hello world': 13,
-              'uryyb jbeyq.': 13
+              'Uryyb Jbeyq!': 13
               }
 
 
@@ -33,6 +32,8 @@ def rotate_word(s, n):
             elif c < ord('A'):
                 new = c + 26 * ((64 - c) // 26 + 1)
                 res += chr(new)
+        else:
+            res += i
     return res
 
 
